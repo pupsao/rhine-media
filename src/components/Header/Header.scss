@@ -1,5 +1,4 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@use '../../styles/shared' as *;
 
 .navbar {
   position: fixed;
@@ -45,7 +44,7 @@
 
   .nav-links {
     display: none;
-    @include tablet {
+    @include desktop {
       display: flex;
       gap: 30px;
       li a {
@@ -54,6 +53,9 @@
         transition: color $transition-fast;
         &:hover {
           color: $color-text;
+        }
+        &.active {
+          color: $gold;
         }
       }
     }
@@ -65,8 +67,19 @@
 
     .btn {
       display: none;
+      
+      &.btn-primary {
+        display: inline-flex;
+        padding: 8px 16px;
+        font-size: 0.8rem;
+      }
+
       @include desktop {
         display: inline-flex;
+        &.btn-primary {
+          padding: 12px 24px;
+          font-size: 0.95rem;
+        }
       }
     }
 
@@ -104,9 +117,9 @@
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 80px 40px;
-  gap: 30px;
+  justify-content: flex-start;
+  padding: 20px;
+  overflow-y: auto;
   transition: right $transition-medium;
 
   &.open {
@@ -115,18 +128,34 @@
 
   .close-btn {
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 20px;
+    right: 20px;
     background: none;
     border: none;
     color: $color-text;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     cursor: pointer;
+    z-index: 2;
+  }
+
+  .menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto 0; /* Centers when fits, drops to top when overflows */
+    padding: 80px 0 40px;
+    gap: 24px;
+    width: 100%;
   }
 
   a {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 600;
     color: $color-text;
+  }
+
+  .mobile-cta {
+    margin-top: 10px;
+    margin-bottom: 0;
   }
 }

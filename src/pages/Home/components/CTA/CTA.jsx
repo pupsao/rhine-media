@@ -7,7 +7,7 @@ const CTA = () => {
   return (
     <section className="cta-sec">
       <div className="container">
-        <div className="cta-box" data-aos="fade-up">
+        <div className="cta-box" data-aos="fade-down">
           <div className="eyebrow text-gold">&mdash; Let's Scale Together</div>
           <h2>Ready to <span className="text-gold">Maximize</span> Your ROI?</h2>
           <p>

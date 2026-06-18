@@ -7,24 +7,21 @@ A premium, high-performance, and fully responsive landing page built with modern
 ## 🚀 Tech Stack
 
 - **Framework:** React 19 + Vite
-- **Routing:** React Router v7
+- **Routing:** React Router v7 (SPA with `NavLink` for active states)
 - **Styling:** SCSS (Sass) with a centralized design system
-- **Animations:** AOS (Animate On Scroll)
+- **Animations:** AOS (Animate On Scroll), refreshed on route changes
 - **Icons:** Lucide React
-- **Backend / Database:** Supabase (for handling contact form submissions)
+- **Backend / Database:** Supabase (contact form submissions)
 
-## 🏗️ Architecture & Best Practices
+## 🏗️ Architecture
 
-1. **Clean Component Architecture:** The application is split into highly reusable and semantic components (`HeroSection`, `Features`, `StatsBand`, etc.). Each component is strictly scoped with its own SCSS file.
-2. **Separation of Concerns:** All static text, statistics, and list items are extracted into a central `content.json` file. This allows non-developers to update website copy without touching the React logic.
-3. **Optimized Styling:** 
-   - No CSS-in-JS overhead; pure, highly optimized SCSS.
-   - Global variables (`_variables.scss`) for a centralized color and typography system.
-   - Heavy use of CSS Grid and Flexbox for fully responsive layouts without media-query bloat.
-   - Native CSS `scroll-padding-top` used for perfectly offset anchor scrolling, eliminating the need for heavy JavaScript scroll event listeners.
-4. **Performance First:** 
-   - AOS library used for lightweight, hardware-accelerated scroll animations.
-   - State updates are strictly boolean-checked to prevent unnecessary React re-renders.
+1. **Component Structure:** The app is split into page-scoped components (`HeroSection`, `Features`, `StatsBand`, etc.), each with its own `.scss` file.
+2. **Content Separation:** Static text and data are stored in `content.json`, keeping components focused on layout and logic.
+3. **Styling Approach:**
+   - SCSS with global variables (`_variables.scss`) and mixins.
+   - CSS Grid and Flexbox for responsive layouts.
+   - No CSS-in-JS; styles are compiled at build time.
+4. **Forms:** The contact form uses the `FormData` API to collect values on submit (uncontrolled inputs), with GDPR consent tracking.
 
 ## 🔌 Supabase Integration (Contact Form)
 

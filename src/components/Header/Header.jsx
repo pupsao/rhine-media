@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import './Header.scss';
 
 const Header = () => {
@@ -15,6 +15,20 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
 
   const closeMenu = () => setIsMobileMenuOpen(false);
 
@@ -32,7 +46,7 @@ const Header = () => {
             <li><Link to="/#traffic">Traffic Sources</Link></li>
             <li><Link to="/#partners">Partners</Link></li>
             <li><Link to="/#why-us">Why Us</Link></li>
-            <li><Link to="/contact" style={location.pathname === '/contact' ? { color: '#eab24a' } : {}}>Contact</Link></li>
+            <li><NavLink to="/contact" end>Contact</NavLink></li>
           </ul>
 
           <div className="nav-right">
@@ -41,7 +55,9 @@ const Header = () => {
             ) : (
               <Link to="/contact" className="btn btn-ghost">Get in touch</Link>
             )}
-            <Link to={location.pathname === '/contact' ? '/contact#contact-form' : '/contact'} className="btn btn-primary">Send Message</Link>
+            <Link to={location.pathname === '/contact' ? '/contact#contact-form' : '/contact'} className="btn btn-primary">
+              {location.pathname === '/contact' ? 'Send Message' : 'Start Cooperation'}
+            </Link>
             <button 
               className="hamburger" 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -56,12 +72,18 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div className="mobile-menu open">
           <button className="close-btn" onClick={() => setIsMobileMenuOpen(false)}><X size={24} /></button>
-          <Link to="/#verticals" onClick={closeMenu}>Verticals</Link>
-          <Link to="/#traffic" onClick={closeMenu}>Traffic Sources</Link>
-          <Link to="/#partners" onClick={closeMenu}>Partners</Link>
-          <Link to="/#why-us" onClick={closeMenu}>Why Us</Link>
-          <Link to="/contact" onClick={closeMenu}>Contact</Link>
-          <Link to={location.pathname === '/contact' ? '/contact#contact-form' : '/contact'} className="btn btn-primary" style={{ marginTop: '14px' }} onClick={closeMenu}>Send Message</Link>
+          <div className="menu-content">
+            <Link to="/#verticals" onClick={closeMenu}>Verticals</Link>
+            <Link to="/#traffic" onClick={closeMenu}>Traffic Sources</Link>
+            <Link to="/#partners" onClick={closeMenu}>Partners</Link>
+            <Link to="/#why-us" onClick={closeMenu}>Why Us</Link>
+            <Link to="/contact" onClick={closeMenu}>Contact</Link>
+            {location.pathname === '/contact' ? (
+              <Link to="/" className="btn btn-ghost mobile-cta" onClick={closeMenu}>Back to Home</Link>
+            ) : (
+              <Link to="/contact" className="btn btn-ghost mobile-cta" onClick={closeMenu}>Get in Touch</Link>
+            )}
+          </div>
         </div>
       )}
     </header>

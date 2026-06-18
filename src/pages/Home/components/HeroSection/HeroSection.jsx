@@ -39,8 +39,8 @@ const HeroSection = () => {
           </div>
 
           <div className="hero-kpis">
-            {content.heroKpis.map((kpi, idx) => (
-              <div key={idx} className="kpi">
+            {content.heroKpis.map((kpi) => (
+              <div key={kpi.id} className="kpi">
                 <span className="kpi-v text-gold">{kpi.value}</span>
                 <span className="kpi-l">{kpi.label}</span>
               </div>

@@ -1,5 +1,4 @@
-@import '../../../../styles/variables';
-@import '../../../../styles/mixins';
+@use '../../../../styles/shared' as *;
 
 .stats-band {
   background-color: $bg-1;
@@ -9,25 +8,41 @@
 
   .stats-row {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
-
-    @include tablet {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
 
     @include desktop {
       grid-template-columns: repeat(4, 1fr);
-      gap: 0;
     }
   }
 
   .stat-cell {
     text-align: center;
-    padding: 0 20px;
+    padding: 30px 15px;
+
+    /* Mobile borders (2x2 grid) */
+    &:nth-child(1),
+    &:nth-child(2) {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    &:nth-child(odd) {
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+    }
 
     @include desktop {
+      /* Reset mobile borders */
+      &:nth-child(1),
+      &:nth-child(2) {
+        border-bottom: none;
+      }
+      &:nth-child(odd) {
+        border-right: none;
+      }
+
+      /* Desktop borders */
       border-right: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 0 20px;
 
       &:last-child {
         border-right: none;

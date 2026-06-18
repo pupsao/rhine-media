@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import './ContactFaq.scss';
 import content from '../../../data/content.json';
 
 
@@ -14,14 +15,14 @@ const ContactFaq = () => {
   return (
     <section className="faq-section">
       <div className="container">
-        <div className="section-header">
-          <div className="eyebrow">FAQ</div>
+        <div className="section-header" data-aos="fade-down">
+          <div className="eyebrow text-gold">&mdash; FAQ</div>
           <h2 className="sec-title">Common <span className="text-gold">Questions</span></h2>
           <p className="sec-sub">Everything you need to know before starting a cooperation with Rhine Media.</p>
         </div>
 
         <div className="faq-list">
-          {content.faqs.map(faq => (
+          {content.faqs.map((faq, index) => (
             <div key={faq.id} className={`faq-item ${openFaq === faq.id ? 'open' : ''}`}>
               <button className="faq-q" onClick={() => toggleFaq(faq.id)}>
                 {faq.q}

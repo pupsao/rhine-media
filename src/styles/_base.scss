@@ -1,4 +1,4 @@
-@import 'variables';
+@use 'variables' as *;
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -9,6 +9,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
+  overflow-x: hidden;
 }
 
 body {
@@ -18,6 +19,12 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 h1, h2, h3, h4, h5, h6 {

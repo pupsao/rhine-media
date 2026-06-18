@@ -1,9 +1,9 @@
-
 import { Send, Mail, Briefcase, Zap } from 'lucide-react';
+import './ContactInfo.scss';
 
 const ContactInfo = () => {
   return (
-    <div className="contact-intro">
+    <div className="contact-intro" data-aos="fade-right">
       <h3>Let's Build Something<br/><span className="text-gold">Profitable Together</span></h3>
       <p className="intro-desc">
         Whether you're an advertiser looking to scale your offers, an affiliate network seeking a reliable buying team, or a brand ready to expand globally — we want to hear from you.
@@ -21,7 +21,7 @@ const ContactInfo = () => {
           <div className="cinfo-ico"><Mail size={24} strokeWidth={1.5} /></div>
           <div className="cinfo-text">
             <h4>Email</h4>
-            <a href="mailto:info@rhine-media.com">info@rhine-media.com</a>
+            <a href="mailto:hello@rhine-media.com">hello@rhine-media.com</a>
           </div>
         </div>
         <div className="cinfo-item">

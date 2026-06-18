@@ -1,15 +1,15 @@
 {
   "heroKpis": [
-    { "value": "$12M+", "label": "Monthly Ad Spend" },
-    { "value": "340%", "label": "Average Campaign ROI" },
-    { "value": "8+", "label": "Traffic Channels" },
-    { "value": "60+", "label": "GEOs Worldwide" }
+    { "id": 1, "value": "$12M+", "label": "Monthly Ad Spend" },
+    { "id": 2, "value": "340%", "label": "Average Campaign ROI" },
+    { "id": 3, "value": "8+", "label": "Traffic Channels" },
+    { "id": 4, "value": "60+", "label": "GEOs Worldwide" }
   ],
   "statsBand": [
-    { "value": "4.2B+", "label": "Ad Impressions / Month", "sub": "Across all traffic sources" },
-    { "value": "340%", "label": "Average ROI", "sub": "Verified by partners" },
-    { "value": "7", "label": "Verticals Mastered", "sub": "Dating, Nutra, Gambling & more" },
-    { "value": "60+", "label": "Global GEOs", "sub": "Tier-1 & emerging markets" }
+    { "id": 1, "value": "4.2B+", "label": "Ad Impressions / Month", "sub": "Across all traffic sources" },
+    { "id": 2, "value": "340%", "label": "Average ROI", "sub": "Verified by partners" },
+    { "id": 3, "value": "7", "label": "Verticals Mastered", "sub": "Dating, Nutra, Gambling & more" },
+    { "id": 4, "value": "60+", "label": "Global GEOs", "sub": "Tier-1 & emerging markets" }
   ],
   "checklistItems": [
     { "id": 1, "title": "Full Funnel Optimization", "desc": "From creative A/B testing to post-click landing page optimization. Every touchpoint tracked and improved continuously." },

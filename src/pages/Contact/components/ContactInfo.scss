@@ -1,0 +1,135 @@
+@use '../../../styles/shared' as *;
+
+.contact-intro {
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .intro-desc {
+    color: $color-text-muted;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+}
+
+.cinfo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+
+  .cinfo-item {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    .cinfo-ico {
+      width: 44px;
+      height: 44px;
+      border-radius: $radius-full;
+      background: $bg-card;
+      color: white;
+      @include flex-center;
+      font-size: 1.2rem;
+    }
+
+    .cinfo-text {
+      h4 {
+        font-size: 0.9rem;
+        color: $color-text-muted;
+        margin-bottom: 4px;
+      }
+
+      p, a {
+        font-size: 1rem;
+        color: white;
+        font-weight: 600;
+      }
+
+      a {
+        transition: color $transition-fast;
+        &:hover {
+          color: $color-gold;
+        }
+      }
+    }
+  }
+}
+
+.available-lbl {
+  font-size: 0.83rem;
+  color: $color-text-muted;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.available-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  .tag {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+.map-stub-grid {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: $radius-lg;
+  overflow: hidden;
+  margin-top: 40px;
+  position: relative;
+  height: 220px;
+
+  .map-stub-grid-inner {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(62,114,236,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(62,114,236,0.05) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .map-stub-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    z-index: 1;
+  }
+
+  .map-stub-pin {
+    width: 32px;
+    height: 32px;
+    background: rgba(201, 151, 59, 0.2);
+    border: 1px solid rgba(201, 151, 59, 0.4);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    margin-bottom: 4px;
+    position: relative;
+
+    &::after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: $color-gold;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

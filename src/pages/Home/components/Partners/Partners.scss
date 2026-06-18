@@ -1,5 +1,4 @@
-@import '../../../../styles/variables';
-@import '../../../../styles/mixins';
+@use '../../../../styles/shared' as *;
 
 .partners {
   padding: 100px 0;

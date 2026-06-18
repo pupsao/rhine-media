@@ -38,6 +38,6 @@ $transition-medium: 0.3s ease-in-out;
 $transition-slow: 0.5s ease;
 
 // Breakpoints
-$bp-mobile: 480px;
-$bp-tablet: 768px;
+$bp-mobile: 480px; // not really used directly as max-width, but kept for reference
+$bp-tablet: 600px;
 $bp-desktop: 1024px;

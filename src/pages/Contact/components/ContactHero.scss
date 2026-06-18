@@ -1,0 +1,32 @@
+@use '../../../styles/shared' as *;
+
+.page-hero {
+  text-align: left;
+  padding: 160px 0 60px;
+  background-color: $bg-1;
+  
+  .eyebrow {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    color: $color-gold;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    
+    @include tablet {
+      font-size: 4rem;
+    }
+  }
+
+  p {
+    color: $color-text-muted;
+    font-size: 1.1rem;
+    max-width: 600px;
+  }
+}

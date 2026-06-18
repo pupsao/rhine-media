@@ -1,0 +1,99 @@
+@use '../../../styles/shared' as *;
+
+.faq-section {
+  padding: 100px 0;
+  background: $bg-1;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    
+    .eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      color: $color-gold;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    
+    .sec-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      
+      @include tablet {
+        font-size: 3rem;
+      }
+    }
+    
+    .sec-sub {
+      color: $color-text-muted;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+  }
+
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    .faq-q {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      font-family: inherit;
+      text-align: left;
+      cursor: pointer;
+      transition: color $transition-fast;
+
+      &:hover {
+        color: $gold;
+      }
+
+      .faq-arrow {
+        width: 24px;
+        height: 24px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: $radius-sm;
+        @include flex-center;
+        font-size: 0.8rem;
+        color: $color-text-muted;
+        transition: all $transition-fast;
+      }
+    }
+
+    .faq-a {
+      padding: 0 0 24px;
+      color: $color-text-muted;
+      line-height: 1.6;
+      display: none;
+    }
+
+    &.open {
+      .faq-q {
+
+        .faq-arrow {
+          transform: rotate(180deg);
+          background: rgba(201, 151, 59, 0.2);
+        }
+      }
+
+      .faq-a {
+        display: block;
+      }
+    }
+  }
+}
