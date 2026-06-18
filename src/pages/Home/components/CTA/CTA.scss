@@ -1,0 +1,71 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.cta-sec {
+  padding: 80px 0 120px;
+  position: relative;
+
+  .cta-box {
+    background: $bg-card-h;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: $radius-xl;
+    padding: 60px 30px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    transition: all $transition-medium;
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.1);
+      background: lighten(#141F30, 2%);
+      transform: scale(1.01);
+    }
+
+    @include tablet {
+      padding: 80px 60px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      
+      @include tablet {
+        font-size: 3.5rem;
+      }
+    }
+
+    p {
+      color: $color-text-muted;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    .cta-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+
+      .btn-ghost {
+        color: $gold;
+        border-color: rgba(201, 151, 59, 0.4);
+
+        &:hover {
+          background: rgba(201, 151, 59, 0.1);
+          border-color: rgba(201, 151, 59, 0.6);
+        }
+      }
+    }
+  }
+}

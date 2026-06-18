@@ -1,0 +1,143 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 80px 0 30px;
+  background: $color-bg;
+
+  .footer-cols {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+
+    @include tablet {
+      grid-template-columns: 1fr 1fr;
+      row-gap: 60px;
+      column-gap: 40px;
+    }
+
+    @include desktop {
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+  }
+
+  .brand-col {
+    .logo {
+      @include flex-center;
+      justify-content: flex-start;
+      gap: 10px;
+      margin-bottom: 20px;
+
+      .logo-mark {
+        width: 32px;
+        height: 32px;
+        background: $color-gold;
+        color: #150e00;
+        border-radius: $radius-sm;
+        @include flex-center;
+        font-weight: 800;
+        font-size: 1rem;
+      }
+
+      .logo-name {
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+    }
+
+    .fb-desc {
+      color: $color-text-muted;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      max-width: 300px;
+      line-height: 1.6;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+
+      .soc-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        @include flex-center;
+        color: $color-text;
+        transition: all $transition-fast;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+          color: $gold;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+
+  .links-col {
+    .fc-head {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .fc-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      li a {
+        color: $color-text-muted;
+        font-size: 0.95rem;
+        transition: color $transition-fast;
+
+        &:hover {
+          color: $gold;
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .copy {
+      font-size: 0.85rem;
+      color: $color-text-muted;
+
+      .text-muted {
+        color: rgba(255, 255, 255, 0.3);
+      }
+    }
+
+    .f-legal {
+      display: flex;
+      gap: 20px;
+
+      a {
+        font-size: 0.85rem;
+        color: $color-text-muted;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.legal-hero {
+  padding: 80px 0 40px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    
+    @include tablet {
+      font-size: 3.5rem;
+    }
+  }
+
+  p {
+    color: $color-text-muted;
+    font-size: 1rem;
+  }
+}
+
+.legal-page-body {
+  padding: 60px 0 100px;
+
+  .legal-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    color: $color-text-muted;
+    line-height: 1.7;
+
+    .legal-meta {
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      color: white;
+
+      strong {
+        color: $color-gold;
+      }
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: white;
+      margin: 40px 0 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    ul {
+      margin-bottom: 20px;
+      padding-left: 20px;
+
+      li {
+        margin-bottom: 10px;
+        
+        strong {
+          color: white;
+        }
+      }
+    }
+
+    a {
+      color: $color-gold;
+      transition: color $transition-fast;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}

@@ -1,0 +1,138 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.features {
+  padding: 120px 0;
+  position: relative;
+  background: $bg-1;
+
+  .feat-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+    align-items: center;
+
+    @include desktop {
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+  }
+
+  .feat-content {
+    .eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    
+    .sec-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      
+      @include tablet {
+        font-size: 3rem;
+      }
+    }
+
+    .sec-sub {
+      color: $color-text-muted;
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+  }
+
+  .check-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .check-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+
+      .chk {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        background: rgba(201, 151, 59, 0.05);
+        border: 1px solid rgba(201, 151, 59, 0.4);
+        color: $gold;
+        border-radius: 8px;
+        @include flex-center;
+        margin-top: 2px;
+      }
+
+      .chk-body {
+        h4 {
+          font-size: 1.1rem;
+          color: white;
+          margin-bottom: 6px;
+        }
+
+        p {
+          font-size: 0.95rem;
+          color: $color-text-muted;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+
+  .feat-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .fc {
+      background: $bg-card;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 30px 24px;
+      border-radius: $radius-lg;
+      transition: all $transition-medium;
+
+      &:hover {
+        transform: translateY(-5px);
+        background: $bg-card-h;
+        border-color: rgba(201, 151, 59, 0.3);
+      }
+
+      .fc-ico {
+        font-size: 2rem;
+        margin-bottom: 16px;
+      }
+
+      .fc-title {
+        font-size: 1.15rem;
+        color: white;
+        margin-bottom: 10px;
+      }
+
+      .fc-body {
+        font-size: 0.9rem;
+        color: $color-text-muted;
+        line-height: 1.6;
+      }
+    }
+    
+
+    @include desktop {
+      .fc:nth-child(even) {
+        transform: translateY(30px);
+
+        &:hover {
+          transform: translateY(25px);
+        }
+      }
+    }
+  }
+}

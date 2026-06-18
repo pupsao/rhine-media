@@ -1,0 +1,95 @@
+@import 'variables';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: $font-primary;
+  background-color: $color-bg;
+  color: $color-text;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-primary;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
+
+.text-gold {
+  background: $color-gold;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: $gold;
+}
+
+.text-blue {
+  color: $color-blue;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: $radius-full;
+  font-family: $font-secondary;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all $transition-fast;
+  gap: 8px;
+  border: none;
+
+  &-primary {
+    background: $color-gold;
+    color: #150e00;
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0px 8px 15px rgba(201, 151, 59, 0.3);
+    }
+  }
+
+  &-ghost {
+    background: transparent;
+    color: $color-text;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    &:hover {
+      background: rgba(201, 151, 59, 0.1);
+      border-color: $color-gold;
+      color: $gold;
+    }
+  }
+}

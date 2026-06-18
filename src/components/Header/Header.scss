@@ -1,0 +1,132 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0;
+  z-index: 100;
+  transition: all $transition-medium;
+
+  &.scrolled {
+    padding: 15px 0;
+    @include glass;
+  }
+
+  .nav-inner {
+    @include flex-between;
+  }
+
+  .logo {
+    @include flex-center;
+    gap: 10px;
+
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      background: $color-gold;
+      color: #120d00;
+      border-radius: $radius-sm;
+      @include flex-center;
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+
+    .logo-name {
+      font-weight: 700;
+      font-size: 1.2rem;
+      span {
+        color: $gold;
+      }
+    }
+  }
+
+  .nav-links {
+    display: none;
+    @include tablet {
+      display: flex;
+      gap: 30px;
+      li a {
+        font-size: 0.95rem;
+        color: $color-text-muted;
+        transition: color $transition-fast;
+        &:hover {
+          color: $color-text;
+        }
+      }
+    }
+  }
+
+  .nav-right {
+    @include flex-center;
+    gap: 15px;
+
+    .btn {
+      display: none;
+      @include desktop {
+        display: inline-flex;
+      }
+    }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      
+      @include desktop {
+        display: none;
+      }
+
+      span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: $color-text;
+        transition: $transition-fast;
+      }
+    }
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background: $color-bg;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 40px;
+  gap: 30px;
+  transition: right $transition-medium;
+
+  &.open {
+    right: 0;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: none;
+    border: none;
+    color: $color-text;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $color-text;
+  }
+}

@@ -1,0 +1,114 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.partners {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+    
+    .eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    
+    .sec-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      
+      @include tablet {
+        font-size: 3rem;
+      }
+    }
+    
+    .sec-sub {
+      color: $color-text-muted;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+  }
+
+  .marquee-wrap {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+    
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 100px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+    
+    &::before {
+      left: 0;
+      background: linear-gradient(to right, $color-bg, transparent);
+    }
+    
+    &::after {
+      right: 0;
+      background: linear-gradient(to left, $color-bg, transparent);
+    }
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+    gap: 20px;
+    
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  .p-chip {
+    background: $bg-card;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    border-radius: $radius-full;
+    gap: 12px;
+    transition: all $transition-fast;
+    cursor: default;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(201, 151, 59, 0.4);
+      transform: scale(1.05);
+    }
+
+    .p-chip-ico {
+      font-size: 1.2rem;
+    }
+
+    .p-chip-name {
+      font-weight: 600;
+      color: white;
+      white-space: nowrap;
+    }
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 10px));
+  }
+}

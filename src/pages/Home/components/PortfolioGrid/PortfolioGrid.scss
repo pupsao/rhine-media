@@ -1,0 +1,98 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.portfolio {
+  padding: 100px 0;
+  background: $bg-0;
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    
+    .eyebrow {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    
+    .sec-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      
+      @include tablet {
+        font-size: 3rem;
+      }
+    }
+    
+    .sec-sub {
+      color: $color-text-muted;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+  }
+  
+  .p-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include desktop {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .p-card {
+    background: $bg-card;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px 24px;
+    border-radius: $radius-lg;
+    position: relative;
+    overflow: hidden;
+    
+    &:hover {
+      border: 1px solid $gold;
+      border-top: 2px solid $gold;
+      background: $bg-card-h;
+    }
+    
+    .p-ico {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .p-name {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: white;
+    }
+    
+    .p-desc {
+      color: $color-text-muted;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    
+    .p-pill {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: $radius-full;
+      background: rgba(201, 151, 59, 0.1);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: $gold;
+    }
+  }
+}

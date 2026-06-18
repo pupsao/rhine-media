@@ -1,0 +1,56 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.stats-band {
+  background-color: $bg-1;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 40px 0;
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include desktop {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+  }
+
+  .stat-cell {
+    text-align: center;
+    padding: 0 20px;
+
+    @include desktop {
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    .stat-num {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .stat-lbl {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    .stat-sub {
+      font-size: 0.8rem;
+      color: $color-text-muted;
+    }
+  }
+}
