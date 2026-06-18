@@ -22,7 +22,7 @@ const ContactFaq = () => {
         </div>
 
         <div className="faq-list">
-          {content.faqs.map((faq, index) => (
+          {content.faqs.map((faq) => (
             <div key={faq.id} className={`faq-item ${openFaq === faq.id ? 'open' : ''}`}>
               <button className="faq-q" onClick={() => toggleFaq(faq.id)}>
                 {faq.q}

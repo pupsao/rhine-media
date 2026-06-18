@@ -1,5 +1,3 @@
-
-
 import './ContactHero.scss';
 
 const ContactHero = () => {

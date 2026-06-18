@@ -2,7 +2,7 @@
 
 🌍 **Live Demo:** [https://pupsao.github.io/rhine-media/](https://pupsao.github.io/rhine-media/)
 
-A premium, high-performance, and fully responsive landing page built with modern frontend technologies. This project demonstrates best practices in clean architecture, componentization, and performance optimization for React applications.
+A responsive landing page for a media buying agency, built with React and SCSS.
 
 ## 🚀 Tech Stack
 
