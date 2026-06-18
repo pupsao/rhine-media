@@ -1,16 +1,60 @@
-# React + Vite
+# Rhine Media Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium, high-performance, and fully responsive landing page built with modern frontend technologies. This project demonstrates best practices in clean architecture, componentization, and performance optimization for React applications.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Framework:** React 19 + Vite
+- **Routing:** React Router v7
+- **Styling:** SCSS (Sass) with a centralized design system
+- **Animations:** AOS (Animate On Scroll)
+- **Icons:** Lucide React
+- **Backend / Database:** Supabase (for handling contact form submissions)
 
-## React Compiler
+## 🏗️ Architecture & Best Practices
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. **Clean Component Architecture:** The application is split into highly reusable and semantic components (`HeroSection`, `Features`, `StatsBand`, etc.). Each component is strictly scoped with its own SCSS file.
+2. **Separation of Concerns:** All static text, statistics, and list items are extracted into a central `content.json` file. This allows non-developers to update website copy without touching the React logic.
+3. **Optimized Styling:** 
+   - No CSS-in-JS overhead; pure, highly optimized SCSS.
+   - Global variables (`_variables.scss`) for a centralized color and typography system.
+   - Heavy use of CSS Grid and Flexbox for fully responsive layouts without media-query bloat.
+   - Native CSS `scroll-padding-top` used for perfectly offset anchor scrolling, eliminating the need for heavy JavaScript scroll event listeners.
+4. **Performance First:** 
+   - AOS library used for lightweight, hardware-accelerated scroll animations.
+   - State updates are strictly boolean-checked to prevent unnecessary React re-renders.
 
-## Expanding the ESLint configuration
+## 🔌 Supabase Integration (Contact Form)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The contact form on the `/contact` page is fully functional and connected to a **Supabase** backend. When a user submits a message, the data is directly inserted into the Supabase database. 
+
+To make this work locally, you need to create a `.env` file in the root of the project with your Supabase credentials:
+
+```env
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+## 🛠️ Local Development
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+## 🌐 Deployment (GitHub Pages)
+
+This project is pre-configured for automatic deployment to GitHub pages using the `gh-pages` package. 
+
+To deploy a new version:
+1. Ensure your `vite.config.js` has the correct `base: '/rhine-media/'` path.
+2. Run the deploy script:
+   ```bash
+   npm run deploy
+   ```
+*(Note: A custom `predeploy` script automatically generates a `404.html` fallback file to ensure React Router works correctly on GitHub Pages).*
