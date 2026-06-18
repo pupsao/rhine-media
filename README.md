@@ -2,58 +2,50 @@
 
 🌍 **Live Demo:** [https://pupsao.github.io/rhine-media/](https://pupsao.github.io/rhine-media/)
 
-A responsive landing page for a media buying agency, built with React and SCSS.
+A responsive landing page built for a media buying agency using React and SCSS.
 
-## 🚀 Tech Stack
+## Project Structure
 
 - **Framework:** React 19 + Vite
-- **Routing:** React Router v7 (SPA with `NavLink` for active states)
-- **Styling:** SCSS (Sass) with a centralized design system
-- **Animations:** AOS (Animate On Scroll), refreshed on route changes
-- **Icons:** Lucide React
-- **Backend / Database:** Supabase (contact form submissions)
+- **Routing:** React Router v7
+- **Styling:** Vanilla SCSS. 
+  - `src/styles/` contains global variables (`_variables.scss`), mixins (`_mixins.scss`), and base resets (`_base.scss`).
+  - Components are scoped to their own folders with local `.scss` files (e.g., `HeroSection/HeroSection.scss`).
+- **Icons:** `lucide-react`
+- **Animations:** AOS (Animate On Scroll) is used for scroll-based fade effects.
 
-## 🏗️ Architecture
+## Component Architecture
 
-1. **Component Structure:** The app is split into page-scoped components (`HeroSection`, `Features`, `StatsBand`, etc.), each with its own `.scss` file.
-2. **Content Separation:** Static text and data are stored in `content.json`, keeping components focused on layout and logic.
-3. **Styling Approach:**
-   - SCSS with global variables (`_variables.scss`) and mixins.
-   - CSS Grid and Flexbox for responsive layouts.
-   - No CSS-in-JS; styles are compiled at build time.
-4. **Forms:** The contact form uses the `FormData` API to collect values on submit (uncontrolled inputs), with GDPR consent tracking.
+To keep the application clean and maintainable:
+- The UI is broken down into modular components: `Header`, `HeroSection`, `PortfolioGrid`, `StatsBand`, `TrafficSources`, etc.
+- Static text and data (like FAQ items, feature lists, and stats) have been extracted into a single `src/data/content.json` file. This prevents UI components from becoming bloated with static text and makes editing easier.
 
-## 🔌 Supabase Integration (Contact Form)
+## Contact Form Properties
 
-The contact form on the `/contact` page is fully functional and connected to a **Supabase** backend. When a user submits a message, the data is directly inserted into the Supabase database. 
+The form located on the `/contact` page is fully functional and connected to **Supabase**. It is built with simplicity and performance in mind:
 
-To make this work locally, you need to create a `.env` file in the root of the project with your Supabase credentials:
+- **Uncontrolled Inputs:** The form uses native HTML uncontrolled inputs rather than binding a React state (`useState`) to every single input field.
+- **Data Collection:** On submission (`onSubmit`), it uses the native browser `FormData` API to collect all field values at once. This completely eliminates unnecessary component re-renders while the user is typing.
+- **Supabase Integration:** The collected data is sent directly to a Supabase table. 
+- **Feedback States & UX:** The component tracks submission states (`idle`, `sending`, `success`, `error`). Upon success or error, it displays a relevant message and disables the form for 5 seconds. After the 5-second timeout, the form is automatically cleared (or unblocked) so the user can submit again if needed.
 
+To connect your own database locally, create a `.env` file in the root directory:
 ```env
 VITE_SUPABASE_URL=your_supabase_project_url
 VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
 
-## 🛠️ Local Development
+## Running Locally
 
-1. Clone the repository
-2. Install dependencies:
+1. Install dependencies:
    ```bash
    npm install
    ```
-3. Run the development server:
+2. Run the development server:
    ```bash
    npm run dev
    ```
 
-## 🌐 Deployment (GitHub Pages)
+## Deployment
 
-This project is pre-configured for automatic deployment to GitHub pages using the `gh-pages` package. 
-
-To deploy a new version:
-1. Ensure your `vite.config.js` has the correct `base: '/rhine-media/'` path.
-2. Run the deploy script:
-   ```bash
-   npm run deploy
-   ```
-*(Note: A custom `predeploy` script automatically generates a `404.html` fallback file to ensure React Router works correctly on GitHub Pages).*
+The project is configured for deployment to GitHub Pages. Running `npm run deploy` will build the project and push the output to the `gh-pages` branch. A `predeploy` script automatically copies `index.html` to `404.html` to ensure React Router works correctly on GitHub Pages servers.
